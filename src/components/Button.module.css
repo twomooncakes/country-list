@@ -1,0 +1,18 @@
+.btn {
+  cursor: pointer;
+  background-color: var(--primaryColor);
+  color: var(--textColorDark);
+  border: none;
+  border-radius: 5rem;
+  padding: 0.5rem 1rem;
+  transition: ease-in-out .2s;
+
+  font-family: var(--accentFont);
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  color: var(--textColorLight);
+}

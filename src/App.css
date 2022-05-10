@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;700&display=swap');
+
 :root {
   /* Theme colors */
   --primaryLightColor: #e3fce3;
@@ -5,10 +7,17 @@
   --primaryColor: #8fff8f;
   --secondaryColor: #789678;
   --grayColor: #869686;
+
+  --textColorLight: #ffffff;
+  --textColorDark: #191919;
+
+  /* Fonts */
+  --mainFont: 'Segoe UI', sans-serif;
+  --accentFont: 'Familjen Grotesk', sans-serif;
 }
 
 body {
-  background-color: var(--primaryMediumColor);
+  background-color: var(--primaryLightColor);
   box-sizing: border-box;
   margin: 0;
   padding: 0;

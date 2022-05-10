@@ -1,0 +1,22 @@
+.list-container {
+  margin: 0 5%;
+  font-family: var(--mainFont);
+}
+
+.title {
+  color: var(--textColorDark);
+  text-transform: uppercase;
+  font-family: var(--accentFont);
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  margin: 1.5rem 0;
+}

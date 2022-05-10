@@ -1,5 +1,6 @@
 import React from 'react'
 import { ICountry } from '../Interfaces';
+import css from './ListItem.module.css';
 
 interface Props {
   country: ICountry;
@@ -7,8 +8,10 @@ interface Props {
 
 const ListItem = ({ country }: Props) => {
   return (
-    <div>
-      {country.name}
+    <div className={css["list-item"]}>
+      <p>{country.name}</p>
+      <p>{country.region}</p>
+      <p>{country.area}</p>
     </div>
   )
 }
