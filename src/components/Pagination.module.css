@@ -1,0 +1,10 @@
+.pagination-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-container > button:first-of-type {
+  margin-right: 1rem;
+}

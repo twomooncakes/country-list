@@ -14,6 +14,20 @@
   justify-content: space-between;
 }
 
+@media (max-width:1000px) {
+  .filter-container .left {
+    display: flex;
+    flex-direction: column;
+  }
+  .filter-container .left > button:first-of-type {
+    margin-bottom: 1rem;
+  }
+  .filter-container .right {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
 .filter-container .left > button {
   margin-right: 1rem;
 }
