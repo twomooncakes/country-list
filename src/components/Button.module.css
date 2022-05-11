@@ -9,10 +9,17 @@
 
   font-family: var(--accentFont);
   font-size: 1rem;
+  font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
 .btn:hover {
+  background-color: var(--secondaryColor);
+  color: var(--textColorLight);
+}
+
+.inverted {
+  background-color: var(--secondaryColor);
   color: var(--textColorLight);
 }

@@ -3,11 +3,13 @@ import css from './Button.module.css';
 
 interface Props {
   children: string;
+  invert?: boolean;
+  onClick?(param?: any): void;
 }
 
-const Button = ({ children }: Props) => {
+const Button = ({ children, invert, onClick }: Props) => {
   return (
-    <button className={css.btn}>{children}</button>
+    <button onClick={onClick} className={`${css.btn} ${invert ? css.inverted : ""}`}>{children}</button>
   )
 }
 
