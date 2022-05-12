@@ -4,7 +4,7 @@ import css from './Button.module.css';
 interface Props {
   children: string;
   invert?: boolean;
-  onClick?(param?: any): void;
+  onClick?(): void;
 }
 
 const Button = ({ children, invert, onClick }: Props) => {

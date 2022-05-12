@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ICountry } from '../Interfaces';
 import css from './List.module.css';
 import Button from './Button';
@@ -6,12 +6,14 @@ import ListItem from './ListItem';
 import Pagination from './Pagination';
 
 const List = () => {
+  const dataFetched = useRef(false);
+
   const [initList, setInitList] = useState<ICountry[]>([]);
   const [list, setList] = useState<ICountry[]>([]);
   const [sortASC, setSortASC] = useState<boolean>(true);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+  const [itemsPerPage] = useState<number>(10);
 
   const [filters, setFilters] = useState({ 
     smallerThanCountryFilter: {
@@ -71,26 +73,28 @@ const List = () => {
       const listData = await res.json();
       setList(sortListAlphabetically(listData));
       setInitList(sortListAlphabetically(listData));
+      dataFetched.current = true;
     }
 
-    getListData();
-
+    if(!dataFetched.current) {
+      getListData();
+    }
+    
     return () => {
       setList([]);
-    }
-  }, [])
+    } 
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    initList.length > 0 && handleFiltering();
+    dataFetched.current && handleFiltering();
 
-  }, [filters])
+  }, [filters]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Pagination
   const idxOfLastItem = currentPage * itemsPerPage;
   const idxOfFirstItem = idxOfLastItem - itemsPerPage;
 
   const paginate = (pageNumber: number) => {
-    console.log('paginate' + pageNumber);
     setCurrentPage(pageNumber);
   }
   
@@ -103,6 +107,7 @@ const List = () => {
           <Button invert={filters.smallerThanCountryFilter.isActive} onClick={handleSmallerThanCountryFilter}>{`Show countries smaller than ${filters.smallerThanCountryFilter.countryName}`}</Button>
           <Button invert={filters.regionFilter.isActive} onClick={handleRegionFilter}>{`Show countries in ${filters.regionFilter.region} region`}</Button>
         </div>
+
         <div className={css.right}>
           <Button onClick={handleSort}>{sortASC ? "Z - A" : "A - Z"}</Button>
         </div>

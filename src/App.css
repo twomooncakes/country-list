@@ -16,9 +16,24 @@
   --accentFont: 'Familjen Grotesk', sans-serif;
 }
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primaryColor) transparent;
+}
+
 body {
   background-color: var(--primaryLightColor);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--primaryColor) ;
 }
